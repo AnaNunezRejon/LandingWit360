@@ -575,7 +575,7 @@ ul { list-style: none; }
 .draw-svg { width: 100%; max-width: 1000px; margin: 0 auto; overflow: visible; }
 .draw-svg .stroke-ref { stroke: #E0E0E0; }
 .draw-svg .stroke-draw .draw-stroke { stroke-dasharray: 0; stroke-dashoffset: 0; stroke: var(--black); }
-.draw-svg text { font-size: clamp(4rem, 12vw, 10rem) !important; }
+.draw-svg text { font-size: clamp(5rem, 12vw, 10rem) !important; }
 .cta-text-line { font-family: var(--font-display); font-weight: 700; line-height: 1.6; }
 .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 200px; opacity: 0; transform: translateY(50px); }
 .cta-buttons.visible { opacity: 1; transform: translateY(0); transition: all 0.8s ease; }
@@ -844,7 +844,7 @@ ul { list-style: none; }
 
   /* CTA - MENOS ESPACIO EN MOVIL */
   .cta-section { padding: 100px 0 80px; }
-  .cta-buttons { flex-direction: column; align-items: center; margin-top: 32px; }
+  .cta-buttons { flex-direction: column; align-items: center; margin-top: 100px; }
   .btn-primary, .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
 
   /* Footer - una sola linea en mobile tambien */
@@ -906,7 +906,7 @@ ul { list-style: none; }
   .kit-geo-btn { font-size: 13px; padding: 16px 28px; }
   .kit-geo-title { font-size: clamp(2rem, 9vw, 2.8rem); }
   .kit-geo-subtitle { font-size: 14px; }
-  .process-title-stacked { font-size: clamp(3.5rem, 15vw, 5rem); }
+  .process-title-stacked { font-size: clamp(3.5rem, 12vw, 5rem); }
   .mobile-hero-title { font-size: clamp(3.5rem, 15vw, 5rem); }
   .mobile-kit-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   .cta-section { padding: 80px 0 60px; }
