@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WIT Creativo — KIT DE INGENIERIA GEO: Sobreviviendo a la Era Zero-Click</title>
+  <meta name="description" content="El sistema exacto de 5 fases y monitorizacion semantica que utilizamos en Wit 360 para dominar la era zero-click.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" onerror="console.error('[WIT] GSAP CDN fallo')"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" onerror="console.error('[WIT] ScrollTrigger CDN fallo')"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" crossorigin="anonymous" onerror="console.warn('[WIT] Lenis CDN fallo')"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" onerror="console.warn('[WIT] Three.js CDN fallo')"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+  <canvas id="bg-canvas"></canvas>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Volver al inicio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo"><img src="assets/img/logo.png" alt="WIT" class="logo-img"></a>
+      <div class="nav-links">
+        <a href="#problem" class="nav-link">Problema</a>
+        <a href="#methodology" class="nav-link">Metodologia</a>
+        <a href="#results" class="nav-link">Resultados</a>
+        <a href="#kit-geo" class="nav-link">Kit GEO</a>
+        <a href="#formulario" class="nav-link">Contacto</a>
+        <a href="#kit-geo" class="nav-cta">Descargar Kit GEO</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#problem" class="nav-mobile-link">Problema</a>
+      <a href="#methodology" class="nav-mobile-link">Metodologia</a>
+      <a href="#results" class="nav-mobile-link">Resultados</a>
+      <a href="#kit-geo" class="nav-mobile-link">Kit GEO</a>
+      <a href="#formulario" class="nav-mobile-link">Contacto</a>
+      <a href="#kit-geo" class="nav-mobile-cta">Descargar Kit GEO</a>
+    </div>
+  </nav>
+
+  <!-- ========== 1. HERO ========== -->
+  <section id="hero" class="hero">
+    <div class="hero-content visible" id="heroContent">
+      <span class="hero-event">Ecommerce B2B &middot; Optimizacion CRO &middot; eCongress 2026</span>
+      <h1 class="hero-title" data-hero-title id="heroTitle">
+        <span class="line" id="typeLine1"></span>
+        <span class="line" id="typeLine2"></span>
+        <span class="line" id="typeLine3"></span>
+        <span class="line" id="typeLine4"></span>
+        <span class="line" id="typeLine5"></span>
+      </h1>
+      <h1 class="hero-title mobile-hero-title" id="heroTitleMobile">
+        <span class="line">TU</span>
+        <span class="line">E-COMMERCE</span>
+        <span class="line">B2B NECESITA</span>
+        <span class="line">UN SISTEMA</span>
+        <span class="line">DE VENTAS,</span>
+        <span class="line">NO SOLO</span>
+        <span class="line">UNA TIENDA.</span>
+      </h1>
+      <div class="hero-floating-cta is-mobile">
+        <p class="hero-floating-text">Optimizamos tu arquitectura digital para que cada clic en tu publicidad genere un cliente, no una fuga de presupuesto.</p>
+        <a href="#formulario" class="hero-floating-btn">Solicitar Diagnostico CRO Gratuito</a>
+      </div>
+    </div>
+    <div class="hero-floating-cta" id="heroFloatingCta">
+      <p class="hero-floating-text">Optimizamos tu arquitectura digital para que cada clic en tu publicidad genere un cliente, no una fuga de presupuesto.</p>
+      <a href="#formulario" class="hero-floating-btn">Solicitar Diagnostico CRO Gratuito</a>
+    </div>
+    <div class="hero-3d visible" id="hero3d"></div>
+    <div class="scroll-indicator" id="scrollInd">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== 2. PROBLEMA TECNICO ========== -->
+  <section id="problem" class="solution-section problem-technical-section">
+    <div class="solution-waves">
+      <div class="solution-wave w1"></div>
+      <div class="solution-wave w2"></div>
+      <div class="solution-wave w3"></div>
+    </div>
+    <canvas class="connection-nodes-canvas" id="connectionNodesCanvas"></canvas>
+    <span class="line-draw-mask-full">
+      <span class="line-draw-bar" id="conectaLine"></span>
+    </span>
+    <div class="content-wrapper solution-centered">
+      <div class="solution-text">
+        <span class="section-label">El Problema Tecnico</span>
+        <h2 class="section-title bigger">
+          <span class="solution-line1">La crisis de rentabilidad.</span>
+        </h2>
+        <p class="section-body"><strong>El 90% de los E-commerce B2B tienen una tasa de conversion inferior al 1%.</strong> No es un problema de trafico. Es un problema de friccion sistemica en el proceso de compra: tiempos de carga que expulsan antes de que el usuario vea una ficha de producto, una arquitectura de la informacion que obliga al comprador industrial a dar 5 clicks para encontrar un dato tecnico que necesitaba en 1, un funnel de conversion dise&ntilde;ado sin testing de UX/UI real, y un checkout con pasos innecesarios que transforman cada visita pagada en una fuga de presupuesto medible.</p>
+        <div class="solution-pills">
+          <span class="pill">UX/UI</span>
+          <span class="pill">Tiempos de Carga</span>
+          <span class="pill">Arquitectura de la Informacion</span>
+          <span class="pill">Funnel de Conversion</span>
+          <span class="pill">Checkout Optimization</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. METODOLOGIA TECNICA WIT ========== -->
+  <div class="parallax-sections-wrapper" id="parallaxWrapper">
+    <div class="parallax-bg-layer" id="parallaxBgLayer">
+      <img src="assets/img/parallax-bg.jpg" alt="" loading="lazy">
+    </div>
+
+    <section id="methodology" class="services-section">
+      <div class="services-parallax" id="servicesParallax">CRO GEO SEO IA CRO SEO GEO IA</div>
+      <div class="content-wrapper">
+        <span class="section-label">Metodologia Tecnica Wit</span>
+        <h2 class="section-title methodology-title">
+          <span class="method-line" id="methodLine1">Como transformamos</span>
+          <span class="method-line" id="methodLine2">tu tienda online</span>
+          <span class="method-line" id="methodLine3">en una maquina</span>
+          <span class="method-line" id="methodLine4">de facturacion.</span>
+        </h2>
+        <p class="section-body centered">Cuatro pilares tecnicos que convierten cada visita en una oportunidad de venta medible y escalan tus resultados sin depender exclusivamente de la publicidad de pago.</p>
+        <div class="services-grid">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="service-icon">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="8" y="10" width="32" height="28" rx="3"/>
+                    <line x1="8" y1="18" x2="40" y2="18"/>
+                    <polyline points="16 26 20 30 28 22" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3>CRO &amp; Diseno Web</h3>
+                <p>Dise&ntilde;o matematico. Reduccion de la friccion mediante A/B testing y mapas de calor.</p>
+              </div>
+              <div class="flip-card-back">
+                <h3>CRO &amp; Diseno Web</h3>
+                <p>Analizamos el comportamiento real de los usuarios en tu E-commerce B2B para eliminar puntos de friccion. Cada cambio se valida con datos, no con suposiciones.</p>
+                <ul class="back-list">
+                  <li>A/B testing continuo</li>
+                  <li>Mapas de calor y scroll</li>
+                  <li>Optimizacion de fichas de producto</li>
+                  <li>Checkout de minima friccion</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="service-icon">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="20" cy="20" r="8"/>
+                    <line x1="32" y1="32" x2="26" y2="26"/>
+                    <path d="M8 20h4M20 8v4M32 20h-4M20 32v-4" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3>SEO Tecnico &amp; GEO</h3>
+                <p>Estructuramos tus fichas de producto para que la IA los entienda y los recomiende.</p>
+              </div>
+              <div class="flip-card-back">
+                <h3>SEO Tecnico &amp; GEO</h3>
+                <p>Tus fichas tecnicas aparecen donde tus clientes B2B buscan: Google, ChatGPT, Perplexity. Datos estructurados que la IA puede interpretar y recomendar.</p>
+                <ul class="back-list">
+                  <li>Schema markup para productos industriales</li>
+                  <li>Optimizacion para IA generativa (GEO)</li>
+                  <li>Indexacion tecnica avanzada</li>
+                  <li>Contenido estructurado para LLMs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="service-icon">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 36l8-16 6 10 10-20" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3>Analitica Avanzada</h3>
+                <p>Trazabilidad total: que canal de trafico cierra la venta y cual solo consume presupuesto.</p>
+              </div>
+              <div class="flip-card-back">
+                <h3>Analitica Avanzada</h3>
+                <p>Sabemos exactamente que canal aporta ingresos y cual solo genera visitas de vanidad. Atribucion real, no ultimo click mentiroso.</p>
+                <ul class="back-list">
+                  <li>Attribution modeling multicanal</li>
+                  <li>ROI por canal y campa&ntilde;a</li>
+                  <li>Customer journey B2B completo</li>
+                  <li>Dashboards en tiempo real</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="service-icon">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M24 8v32M8 24h32" stroke-linecap="round"/>
+                    <circle cx="24" cy="24" r="12"/>
+                  </svg>
+                </div>
+                <h3>Automatizacion IA</h3>
+                <p>Gestion inteligente de catalogo y recuperacion de carritos mediante IA.</p>
+              </div>
+              <div class="flip-card-back">
+                <h3>Automatizacion IA</h3>
+                <p>La IA trabaja 24/7: clasifica catalogos, recupera carritos abandonados, predice stock y prioriza leads segun probabilidad de compra.</p>
+                <ul class="back-list">
+                  <li>Recuperacion inteligente de carritos</li>
+                  <li>Enriquecimiento automatico de fichas</li>
+                  <li>Prediccion de demanda B2B</li>
+                  <li>Scoring de leads automatizado</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5. RESULTADOS ========== -->
+    <section id="results" class="results-section">
+      <div class="content-wrapper">
+        <span class="section-label">Resultado</span>
+        <h2 class="section-title centered">
+          <span class="result-line" id="visibilidadLine">Mas visibilidad.</span><br>
+          <span class="result-line" id="conversionesLine">Mas conversiones.</span><br>
+          <span class="result-line" id="ventasLine">Mas ventas.</span>
+        </h2>
+        <p class="section-body centered">Sin complicar el proceso.</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number" data-count="300">+0%</span>
+            <span class="stat-label">Trafico organico medio</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="150">+0%</span>
+            <span class="stat-label">Tasa de conversion</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="10">0x</span>
+            <span class="stat-label">ROI en campanas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4. JUSTIFICACION TECNICA ========== -->
+    <section id="justification" class="isforyou-section">
+      <div class="content-wrapper justification-centered">
+        <div class="isforyou-text">
+          <span class="section-label">Crecimiento Sostenible</span>
+          <h2 class="section-title justification-title">
+            <span class="justif-line" id="justifLine1">Por que la optimizacion tecnica</span>
+            <span class="justif-line" id="justifLine2">es el unico crecimiento</span>
+            <span class="justif-line" id="justifLine3">sostenible.</span>
+            <span id="isForYouTypeText"></span><span class="type-cursor" id="isForYouCursor"></span>
+          </h2>
+          <ul class="check-list" id="checkList">
+            <li data-index="0"><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>CPA optimizado: pagas menos por cada cliente real</li>
+            <li data-index="1"><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>ROAS medible en cada canal de adquisicion</li>
+            <li data-index="2"><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>LTV expandido: retencion de clientes industrial</li>
+            <li data-index="3"><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>Automatizacion del ciclo de vida del cliente B2B</li>
+          </ul>
+        </div>
+        <div class="isforyou-visual" id="interactiveShapes">
+          <div class="shape-circle" data-color="#e63946"></div>
+          <div class="shape-circle" data-color="#FF6B6B"></div>
+          <div class="shape-circle" data-color="#4ECDC4"></div>
+          <div class="shape-circle" data-color="#e63946"></div>
+          <div class="shape-particles" id="shapeParticles"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 6. SISTEMA WIT TRESEESENTA ========== -->
+    <section id="process" class="process-section">
+      <div class="process-wrapper">
+        <div class="process-header">
+          <div class="process-header-left">
+            <span class="section-label">Nuestro Proceso</span>
+            <h2 class="process-title-stacked">
+              <span class="sistema-line">SISTEMA</span>
+              <span class="wit-line">
+                <span class="wit-bold">WIT</span><span class="tresesenta-light">tresesenta</span>
+              </span>
+            </h2>
+          </div>
+          <div class="carousel-nav" id="carouselNav">
+            <button class="carousel-btn prev" id="carouselPrev" aria-label="Anterior">&#8592;</button>
+            <button class="carousel-btn next" id="carouselNext" aria-label="Siguiente">&#8594;</button>
+          </div>
+        </div>
+        <div class="carousel-container" id="carouselContainer">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-card"><span class="card-number">01</span><h3>SEO TECNICO</h3><p>Optimizacion completa de tu infraestructura digital para que Google te encuentre y entienda.</p></div>
+            <div class="carousel-card"><span class="card-number">02</span><h3>CONTENIDOS</h3><p>Estrategia editorial que atrae, educa y convierte a tu audiencia ideal.</p></div>
+            <div class="carousel-card"><span class="card-number">03</span><h3>DISENO WEB</h3><p>Experiencias convertidoras que guian al visitante hacia la accion.</p></div>
+            <div class="carousel-card"><span class="card-number">04</span><h3>ANALITICA</h3><p>Tomas decisiones basadas en datos reales, no en suposiciones.</p></div>
+            <div class="carousel-card"><span class="card-number">05</span><h3>PUBLICIDAD</h3><p>Campa&ntilde;as rentables que escalan tus resultados sin desperdiciar presupuesto.</p></div>
+            <div class="carousel-card"><span class="card-number">06</span><h3>AUTOMATIZACION</h3><p>Escalar sin friccion. Sistemas que trabajan por ti 24/7.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== 7. KIT GEO SECTION ========== -->
+  <section id="kit-geo" class="kit-geo-section">
+    <div class="content-wrapper kit-geo-centered">
+      <span class="section-label">Kit de Ingenieria GEO</span>
+      <h2 class="section-title kit-geo-title" id="kitGeoDesktop">
+        <span class="kit-line" id="kitLine1">KIT DE INGENIERIA GEO:</span>
+        <span class="kit-line" id="kitLine2">SOBREVIVIENDO A LA</span>
+        <span class="kit-line" id="kitLine3">ERA ZERO-CLICK</span>
+      </h2>
+      <h2 class="section-title kit-geo-title mobile-kit-title" id="kitGeoMobile">
+        <span class="kit-line">KIT DE</span>
+        <span class="kit-line">INGENIERIA</span>
+        <span class="kit-line">GEO:</span>
+        <span class="kit-line">SOBREVIVIENDO</span>
+        <span class="kit-line">A LA ERA</span>
+        <span class="kit-line">ZERO-CLICK</span>
+      </h2>
+      <p class="section-body centered kit-geo-subtitle">El sistema exacto de 5 fases y monitorizacion semantica que utilizamos en Wit 360.</p>
+      <div class="kit-geo-cta">
+        <a href="#formulario" class="kit-geo-btn">
+          <span class="kit-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </span>
+          Descargatelo aqui
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. CTA SVG ========== -->
+  <section id="cta" class="cta-section">
+    <div class="cta-content">
+      <svg class="draw-svg" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet">
+        <g class="stroke-ref" stroke="#E0E0E0" stroke-width="2" fill="none">
+          <text x="400" y="100" text-anchor="middle" font-size="72" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-2">TRANSFORMA</text>
+          <text x="400" y="250" text-anchor="middle" font-size="28" font-family="Space Grotesk, sans-serif">TU PRESENCIA DIGITAL</text>
+          <text x="400" y="400" text-anchor="middle" font-size="18" font-family="JetBrains Mono, monospace">info@witcreativo.es</text>
+        </g>
+        <g class="stroke-draw" stroke="#1a1a1a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <text class="draw-stroke" x="400" y="100" text-anchor="middle" font-size="72" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-2">TRANSFORMA</text>
+          <text class="draw-stroke" x="400" y="250" text-anchor="middle" font-size="30" font-family="Space Grotesk, sans-serif">TU PRESENCIA DIGITAL</text>
+          <text class="draw-stroke" x="400" y="400" text-anchor="middle" font-size="18" font-family="JetBrains Mono, monospace">info@witcreativo.es</text>
+        </g>
+      </svg>
+      <div class="cta-buttons" id="ctaButtons">
+        <a href="#formulario" class="btn-primary">Solicitar Diagnostico CRO Gratuito</a>
+        <a href="#problem" class="btn-secondary">Analizamos tu caso</a>
+        <a href="#results" class="btn-secondary">Ver oportunidades</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 9. FORMULARIO ========== -->
+  <section id="formulario" class="form-section">
+    <div class="form-dark-header">
+      <span class="form-kicker">Reserva tu plaza de diagnostico en el eCongress</span>
+      <h2 class="form-dark-title">CONTACTA</h2>
+      <div class="form-ornament">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="20"/>
+          <circle cx="24" cy="24" r="6" fill="var(--red)" stroke="none"/>
+        </svg>
+      </div>
+    </div>
+    <div class="form-dark-body">
+      <form id="contactForm" class="form-dark-grid">
+        <div class="form-dark-row">
+          <input type="text" id="name" name="name" placeholder="Nombre *" required>
+          <input type="text" id="company" name="company" placeholder="Empresa">
+        </div>
+        <div class="form-dark-row">
+          <input type="email" id="email" name="email" placeholder="Email *" required>
+          <input type="tel" id="phone" name="phone" placeholder="Telefono">
+        </div>
+        <div class="form-dark-row">
+          <textarea id="message" name="message" rows="3" placeholder="Cuentanos sobre tu E-commerce B2B... velocidad de carga, fichas de producto, puntos de fuga en checkout"></textarea>
+        </div>
+        <button type="submit" class="form-dark-btn">Solicitar Diagnostico CRO Gratuito</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer" class="footer">
+    <div class="footer-content">
+      <div class="footer-brand"><img src="assets/img/logo.png" alt="WIT" class="footer-logo-img"><p>Granada</p></div>
+      <div class="footer-event"><span>Ecommerce B2B &middot; CRO &middot; SEO Tecnico &amp; GEO</span><span>Agencia de Publicidad y Marketing Digital</span></div>
+      <div class="footer-links"><a href="#" class="footer-link">LinkedIn</a><a href="#" class="footer-link">Instagram</a><a href="mailto:info@witcreativo.es" class="footer-link">Email</a></div>
+    </div>
+    <div class="footer-bottom"><span>2026 WIT Creativo. Todos los derechos reservados.</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
