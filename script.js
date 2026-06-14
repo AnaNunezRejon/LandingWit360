@@ -347,7 +347,6 @@ function initTypewriter() {
     { el: document.getElementById('typeLine5'), text: 'UNA TIENDA.' }
   ];
   var cursor = document.getElementById('typeCursor');
-  var hero3d = document.getElementById('hero3d');
   var scrollInd = document.getElementById('scrollInd');
   var floatingCta = document.getElementById('heroFloatingCta');
   if (!lines[0].el) return;
@@ -384,12 +383,58 @@ function initTypewriter() {
   }
   setTimeout(typeNext, 300);
   setTimeout(function() {
-    if (hero3d) hero3d.classList.add('visible');
     if (scrollInd) gsap.fromTo(scrollInd, { opacity: 0 }, { opacity: 1, delay: 0.6, duration: 0.8 });
   }, 1000);
   setTimeout(function() {
     if (floatingCta) floatingCta.classList.add('visible');
   }, 2500);
+}
+
+/* ========== TYPEWRITER — Hero Mobile ========== */
+function initTypewriterMobile() {
+  var lines = [
+    { el: document.getElementById('mTypeLine1'), text: 'TU' },
+    { el: document.getElementById('mTypeLine2'), text: 'E-COMMERCE' },
+    { el: document.getElementById('mTypeLine3'), text: 'B2B NECESITA' },
+    { el: document.getElementById('mTypeLine4'), text: 'UN SISTEMA' },
+    { el: document.getElementById('mTypeLine5'), text: 'DE VENTAS,' },
+    { el: document.getElementById('mTypeLine6'), text: 'NO SOLO' },
+    { el: document.getElementById('mTypeLine7'), text: 'UNA TIENDA.' }
+  ];
+  var cursor = document.getElementById('mTypeCursor');
+  if (!lines[0].el) return;
+  var lineIndex = 0;
+  var charIndex = 0;
+  var speed = 45;
+  if (cursor) cursor.style.display = 'inline-block';
+
+  function typeNext() {
+    if (lineIndex >= lines.length) {
+      if (cursor) {
+        cursor.style.animation = 'blink 0.7s ease-in-out 4';
+        setTimeout(function() { cursor.style.display = 'none'; }, 2800);
+      }
+      return;
+    }
+    var current = lines[lineIndex];
+    if (charIndex < current.text.length) {
+      var text = current.el.textContent + current.text.charAt(charIndex);
+      current.el.innerHTML = '';
+      for (var i = 0; i < text.length; i++) {
+        var span = document.createElement('span');
+        span.className = 'letter';
+        span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+        current.el.appendChild(span);
+      }
+      charIndex++;
+      setTimeout(typeNext, speed + Math.random() * 50);
+    } else {
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeNext, 80);
+    }
+  }
+  setTimeout(typeNext, 400);
 }
 
 /* ========== KIT GEO TITLE ANIMATION ========== */
@@ -755,6 +800,7 @@ document.addEventListener('DOMContentLoaded', function() {
   safeInit('ThreeBackground', initThreeBackground);
   // safeInit('ConnectionNodes', initConnectionNodes); // OCULTO - particulas con conectores
   safeInit('Typewriter', initTypewriter);
+  safeInit('TypewriterMobile', initTypewriterMobile);
   safeInit('HeroRedLetters', initHeroRedLetters);
   // safeInit('Hero3DShape', initHero3DShape); // OCULTO - forma geometrica hero
   // safeInit('ConnectionLineDraw', initConnectionLineDraw); // OCULTO - linea aparece/desaparece
